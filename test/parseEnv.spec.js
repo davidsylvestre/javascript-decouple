@@ -1,18 +1,23 @@
-const {parse_object, parse_file} = require('../lib/parseEnv')
+const fs = require('fs')
+const {parse_object, parse_file} = require('../lib/parse/parseEnv')
 
+describe('Parse', () => {
+  const sourceEnv = fs.readFileSync('./.env').toString()
+  const parsed = parse_file(sourceEnv)
 
-test('transform array of string parsed to object', () =>{
+  it('escapes single quoted values', () => {
+    expect(parsed.BASIC).toEqual('basic')
+  })
 
-  const arrParsed = [['teste', 'valor']]
+  it('defaults empty values to empty string', () => {
+    expect(parsed.EMPTY).toEqual('')
+  })
 
-  expect(parse_object(arrParsed)).toEqual({teste: 'valor'})
-})
+  it('escapes double quoted values', () => {
+      expect(parsed.DOUBLE_QUOTES).toEqual('double_quotes')
+  })
 
-test('parse file to object env', () => {
-
-  const FILE = 'key="value"\nkey2="value2"'
-  const expected = {key:"value", key2:"value2"}
-
-  expect(parse_file(FILE)).toEqual(expected)
-
+  it('escapes single quoted values', () => {
+      expect(parsed.SINGLE_QUOTES).toEqual('single_quotes')
+  })
 })

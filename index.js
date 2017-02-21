@@ -1,10 +1,8 @@
 const fs = require('fs')
-const {parse_file} = require('./lib/parseEnv')
 
-const sourceENV = fs.readFileSync('./.env').toString()
+const Config = require('./lib/autoConfig')
 
-console.log('Arquivo .env\n----------')
-console.log(sourceENV)
+config = new Config(__dirname)
 
-console.log('\nObject .env\n----------')
-console.log(parse_file(sourceENV))
+console.log(config.get('appdata'))
+console.log(config.get('NoInterpolation'))

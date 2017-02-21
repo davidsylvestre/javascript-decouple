@@ -1,21 +1,21 @@
 const {bool} = require('../support/cast')
 
-test('Cast true', () => {
+describe('Valid cast', () => {
+  it('should behave true cast', () => {
+    expect(bool('True')).toBe(true)
+    expect(bool('yes')).toBe(true)
+    expect(bool('on')).toBe(true)
+    expect(bool('1')).toBe(true)
+    expect(bool('ON')).toBe(true)
+  })
 
-  expect(bool('True')).toBe(true)
-  expect(bool('yes')).toBe(true)
-  expect(bool('on')).toBe(true)
-  expect(bool('1')).toBe(true)
-  expect(bool('ON')).toBe(true)
-})
-
-test('Cast false', () => {
-
-  expect(bool('false')).toBe(false)
-  expect(bool('no')).toBe(false)
-  expect(bool('off')).toBe(false)
-  expect(bool('0')).toBe(false)
-  expect(bool('OFF')).toBe(false)
+  it('should behave false cast', () => {
+    expect(bool('false')).toBe(false)
+    expect(bool('no')).toBe(false)
+    expect(bool('off')).toBe(false)
+    expect(bool('0')).toBe(false)
+    expect(bool('OFF')).toBe(false)
+  })
 })
 
 describe('Invalid cast', () => {
