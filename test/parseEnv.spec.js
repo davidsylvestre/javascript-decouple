@@ -20,4 +20,8 @@ describe('Parse', () => {
   it('escapes single quoted values', () => {
       expect(parsed.SINGLE_QUOTES).toEqual('single_quotes')
   })
+
+  it('respect equal', () => {
+      expect(parsed.EQUAL_SIGNS).toEqual('equals==')
+  })
 })
