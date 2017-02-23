@@ -1,11 +1,12 @@
 'use strict'
-// https://github.com/AdhityaRamadhanus/CurryJs
-module.exports = function curry (fn) {
-  if (fn == null) throw new Error('Function not provided')
-  var argLength = fn.length
-  return function curryOne (a) {
-    if (a == null) throw new Error('No Arguments')
-    if (argLength-1 === 0) return fn(a)
-    return curry(fn.bind(fn, a))
+// https://github.com/concretesolutions/pareto.js/blob/master/src/utils/function.js
+
+
+const curry = (fn, ...args) => {
+  if (args.length === fn.length) {
+    return fn(...args)
   }
+  return curry.bind(this, fn, ...args)
 }
+
+module.exports = curry
