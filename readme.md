@@ -1,5 +1,17 @@
 # javascript-decouple
 
+## Como usar
+
+```javascript
+const Config = require('./lib/autoConfig')
+
+config = new Config(__dirname)
+
+console.log(config.get('SECRET_KEY'))
+console.log(config.get('EMAIL_HOST', 'localhost'))
+console.log(config.get('EMAIL_PORT', 25, parseInt))
+```
+
 ## Origem e inspiração
 
 A ideia do *javascript-decouple* surgiu de uma lib python do [Henrique Bastos]<https://github.com/henriquebastos>.

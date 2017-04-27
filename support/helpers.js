@@ -3,6 +3,8 @@ const compose = require('./compose')
 
 const map = curry((fn, arr) => arr.map(fn))
 
+const filter = curry((fn, arr) => arr.filter(fn))
+
 const split = curry((delimiter, str) => str.split(delimiter))
 
 const reduce = curry((initialValue, fn, arr) => arr.reduce(fn, initialValue))
@@ -20,4 +22,4 @@ const expandNewLineQuoted = str => isQuoted(str) ? expandNewLine(str) : str
 const normalizeString = compose(removeQuotes)
 
 
-module.exports = {map, split, reduce, reduce_to_object, replace, removeQuotes}
+module.exports = {map, filter, split, reduce, reduce_to_object, replace, removeQuotes}

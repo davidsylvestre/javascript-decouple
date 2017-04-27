@@ -4,10 +4,10 @@ const BOOL_VALUES = {
 }
 
 const bool = str => {
-  if (!(str.toLowerCase() in BOOL_VALUES))
+  if (!(String(str).toLowerCase() in BOOL_VALUES))
     throw `Not a boolean: ${str}`
 
-  return BOOL_VALUES[str.toLowerCase()]
+  return BOOL_VALUES[String(str).toLowerCase()]
 }
 
 module.exports = {bool}

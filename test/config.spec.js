@@ -2,7 +2,7 @@ const fs = require('fs')
 const Config = require('../lib/config')
 const RepositoryEnv = require('../lib/repository/repositoryEnv')
 
-const source = fs.readFileSync('./.env').toString()
+const source = fs.readFileSync(__dirname + '/.env').toString()
 
 const config = new Config(new RepositoryEnv(source))
 

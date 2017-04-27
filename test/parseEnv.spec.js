@@ -2,7 +2,7 @@ const fs = require('fs')
 const {parse_object, parse_file} = require('../lib/parse/parseEnv')
 
 describe('Parse', () => {
-  const sourceEnv = fs.readFileSync('./.env').toString()
+  const sourceEnv = fs.readFileSync(__dirname + '/.env').toString()
   const parsed = parse_file(sourceEnv)
 
   it('escapes single quoted values', () => {
